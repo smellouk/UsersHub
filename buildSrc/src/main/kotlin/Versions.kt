@@ -1,4 +1,3 @@
-import kotlin.String
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
@@ -16,15 +15,19 @@ object Versions {
 
     const val org_jetbrains_kotlin: String = "1.3.61"
 
+    const val androidx_navigation: String = "2.2.1"
+
     const val com_google_dagger: String = "2.26"
 
     const val com_android_tools_build_gradle: String = "3.6.1"
 
     const val androidx_test_ext_junit: String = "1.1.1"
 
-    const val junit_junit: String = "4.12" // available: "4.13"
+    const val junit_junit: String = "4.13"
 
     const val de_fayard_buildsrcversions_gradle_plugin: String = "0.7.0"
+
+    const val lifecycle_extensions: String = "2.2.0"
 
     const val logging_interceptor: String = "4.4.0"
 
@@ -35,6 +38,8 @@ object Versions {
     const val lint_gradle: String = "26.6.1"
 
     const val appcompat: String = "1.1.0"
+
+    const val rxandroid: String = "2.1.1"
 
     const val core_ktx: String = "1.2.0"
 
@@ -58,4 +63,4 @@ object Versions {
  */
 val PluginDependenciesSpec.buildSrcVersions: PluginDependencySpec
     inline get() =
-            id("de.fayard.buildSrcVersions").version(Versions.de_fayard_buildsrcversions_gradle_plugin)
+        id("de.fayard.buildSrcVersions").version(Versions.de_fayard_buildsrcversions_gradle_plugin)

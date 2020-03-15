@@ -65,6 +65,18 @@ object Libs {
             Versions.org_jetbrains_kotlin
 
     /**
+     * https://developer.android.com/topic/libraries/architecture/index.html
+     */
+    const val navigation_fragment_ktx: String = "androidx.navigation:navigation-fragment-ktx:" +
+            Versions.androidx_navigation
+
+    /**
+     * https://developer.android.com/topic/libraries/architecture/index.html
+     */
+    const val navigation_ui_ktx: String = "androidx.navigation:navigation-ui-ktx:" +
+            Versions.androidx_navigation
+
+    /**
      * https://github.com/google/dagger
      */
     const val dagger: String = "com.google.dagger:dagger:" + Versions.com_google_dagger
@@ -97,6 +109,12 @@ object Libs {
             Versions.de_fayard_buildsrcversions_gradle_plugin
 
     /**
+     * https://developer.android.com/topic/libraries/architecture/index.html
+     */
+    const val lifecycle_extensions: String = "androidx.lifecycle:lifecycle-extensions:" +
+            Versions.lifecycle_extensions
+
+    /**
      * https://square.github.io/okhttp/
      */
     const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:" +
@@ -123,6 +141,11 @@ object Libs {
      * https://developer.android.com/jetpack/androidx
      */
     const val appcompat: String = "androidx.appcompat:appcompat:" + Versions.appcompat
+
+    /**
+     * https://github.com/ReactiveX/RxAndroid
+     */
+    const val rxandroid: String = "io.reactivex.rxjava2:rxandroid:" + Versions.rxandroid
 
     /**
      * https://developer.android.com/jetpack/androidx

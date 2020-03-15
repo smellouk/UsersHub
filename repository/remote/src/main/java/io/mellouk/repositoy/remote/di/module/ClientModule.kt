@@ -10,6 +10,7 @@ import io.mellouk.repositoy.remote.utils.Constants
 import io.mellouk.repositoy.remote.utils.DebugInfo
 import io.mellouk.repositoy.remote.utils.RetryInterceptor
 import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -40,7 +41,7 @@ class ClientModule(private val isDebug: Boolean, private val debugInterceptors: 
 
     @Provides
     @Singleton
-    fun provideHttpUrl() = HttpUrl.parse(Constants.HOST_URL) ?: throw IllegalArgumentException(
+    fun provideHttpUrl() = Constants.HOST_URL.toHttpUrlOrNull() ?: throw IllegalArgumentException(
         "Wrong url format"
     )
 

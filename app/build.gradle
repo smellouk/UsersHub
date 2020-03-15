@@ -1,16 +1,18 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation project(":features")
+    implementation project(":common-android")
+    implementation project(":features:main")
+    implementation project(":features:users-list")
+    implementation project(":features:user-profile")
 
     implementation Libs.appcompat
     implementation Libs.core_ktx
     implementation Libs.constraintlayout
 
-    testImplementation Libs.junit_junit
-
-    androidTestImplementation Libs.androidx_test_ext_junit
-    androidTestImplementation Libs.espresso_core
+    implementation Libs.dagger
+    kapt Libs.dagger_compiler
 }

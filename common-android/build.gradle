@@ -1,14 +1,21 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation Libs.appcompat
     implementation Libs.core_ktx
     implementation Libs.constraintlayout
 
-    testImplementation Libs.junit_junit
+    implementation Libs.rxjava
+    implementation Libs.rxandroid
 
-    androidTestImplementation Libs.androidx_test_ext_junit
-    androidTestImplementation Libs.espresso_core
+    implementation Libs.dagger
+    kapt Libs.dagger_compiler
+
+    implementation Libs.lifecycle_extensions
+
+    implementation Libs.navigation_fragment_ktx
+    implementation Libs.navigation_ui_ktx
 }
