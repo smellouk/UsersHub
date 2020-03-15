@@ -12,7 +12,11 @@ import org.gradle.plugin.use.PluginDependencySpec
  * YOU are responsible for updating manually the dependency version.
  */
 object Versions {
+    const val com_squareup_retrofit2: String = "2.7.2"
+
     const val org_jetbrains_kotlin: String = "1.3.61"
+
+    const val com_google_dagger: String = "2.26"
 
     const val com_android_tools_build_gradle: String = "3.6.1"
 
@@ -21,6 +25,8 @@ object Versions {
     const val junit_junit: String = "4.12" // available: "4.13"
 
     const val de_fayard_buildsrcversions_gradle_plugin: String = "0.7.0"
+
+    const val logging_interceptor: String = "4.4.0"
 
     const val constraintlayout: String = "1.1.3"
 
@@ -32,7 +38,11 @@ object Versions {
 
     const val core_ktx: String = "1.2.0"
 
+    const val rxjava: String = "2.2.19"
+
     const val aapt2: String = "3.6.1-6040484"
+
+    const val mockk: String = "1.9.3"
 
     /**
      * Current version: "5.6.4"
