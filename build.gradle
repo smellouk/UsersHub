@@ -1,0 +1,63 @@
+apply plugin: "de.fayard.buildSrcVersions"
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath Libs.com_android_tools_build_gradle
+        classpath Libs.kotlin_gradle_plugin
+        classpath Libs.de_fayard_buildsrcversions_gradle_plugin
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+subprojects{
+    afterEvaluate { project ->
+        if (project.plugins.findPlugin('android') ?: project.plugins.findPlugin('android-library')) {
+            android {
+                compileSdkVersion Config.compileSdkVersion
+                buildToolsVersion Config.buildToolsVersion
+
+                compileOptions {
+                    sourceCompatibility Config.javaVersion
+                    targetCompatibility Config.javaVersion
+                }
+
+                kotlinOptions {
+                    jvmTarget = Config.javaVersion
+                }
+
+                defaultConfig {
+                    minSdkVersion Config.mindSdkVersion
+                    targetSdkVersion Config.targetSdkVersion
+                    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+                }
+
+                buildTypes {
+                    release {
+                        minifyEnabled true
+                        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                    }
+                }
+            }
+        }
+
+        dependencies {
+            implementation Libs.kotlin_stdlib_jdk7
+        }
+    }
+}
