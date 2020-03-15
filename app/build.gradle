@@ -8,6 +8,7 @@ dependencies {
     implementation project(":features:main")
     implementation project(":features:users-list")
     implementation project(":features:user-profile")
+    implementation project(":repository:remote")
 
     implementation Libs.appcompat
     implementation Libs.core_ktx

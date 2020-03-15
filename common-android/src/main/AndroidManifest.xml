@@ -1,2 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.mellouk.common_android" />
+    package="io.mellouk.common_android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

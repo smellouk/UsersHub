@@ -3,13 +3,13 @@ package io.mellouk.common_android.base
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import io.mellouk.common_android.factory.ViewModelFactory
 import javax.inject.Inject
 
 abstract class BaseActivity<
         ComponentProvider : Any,
-        State : ViewState,
-        ViewModel : BaseViewModel<State>
+        State : BaseViewState,
+        Command : BaseCommand,
+        ViewModel : BaseViewModel<State, Command>
         >(layout: Int) :
     AppCompatActivity(layout) {
 

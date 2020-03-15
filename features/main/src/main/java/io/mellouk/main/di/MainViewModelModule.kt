@@ -12,5 +12,6 @@ interface MainViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MainViewModel::class)
+    @MainScope
     fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
 }

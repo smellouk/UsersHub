@@ -6,6 +6,7 @@ import io.mellouk.main.di.MainComponentProvider
 import io.mellouk.users_list.di.UsersListComponent
 import io.mellouk.users_list.di.UsersListComponentProvider
 import io.mellouk.usershub.di.AppComponent
+import io.mellouk.usershub.di.AppModule
 import io.mellouk.usershub.di.DaggerAppComponent
 
 class UsersHubApp : Application(), MainComponentProvider, UsersListComponentProvider {
@@ -13,10 +14,17 @@ class UsersHubApp : Application(), MainComponentProvider, UsersListComponentProv
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.builder().build()
+        appComponent = DaggerAppComponent.builder()
+            .appModule(
+                AppModule(
+                    this,
+                    BuildConfig.DEBUG
+                )
+            )
+            .build()
     }
 
     override fun getMainComponent(): MainComponent = appComponent.getMainComponent()
-    
+
     override fun getUsersListComponent(): UsersListComponent = appComponent.getUsersListComponent()
 }

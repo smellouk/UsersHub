@@ -7,7 +7,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-abstract class BaseViewModel<State : ViewState> : ViewModel() {
+abstract class BaseViewModel<State : BaseViewState, Cmd : BaseCommand> : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
     val liveData = MutableLiveData<State>()
 
@@ -38,6 +38,8 @@ abstract class BaseViewModel<State : ViewState> : ViewModel() {
     }
 
     abstract fun getInitialState(): State
+
+    abstract fun onCommand(cmd: Cmd)
 }
 
 typealias Next<T> = (T) -> Unit

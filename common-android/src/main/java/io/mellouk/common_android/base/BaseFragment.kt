@@ -3,13 +3,13 @@ package io.mellouk.common_android.base
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import io.mellouk.common_android.factory.ViewModelFactory
 import javax.inject.Inject
 
 abstract class BaseFragment<
         ComponentProvider : Any,
-        State : ViewState,
-        ViewModel : BaseViewModel<State>
+        State : BaseViewState,
+        Command : BaseCommand,
+        ViewModel : BaseViewModel<State, Command>
         >(layout: Int) :
     Fragment(layout) {
     @Inject

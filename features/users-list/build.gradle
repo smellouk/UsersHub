@@ -5,6 +5,7 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation project(":common-android")
+    implementation project(":repository:remote")
 
     testImplementation Libs.junit_junit
     androidTestImplementation Libs.androidx_test_ext_junit
