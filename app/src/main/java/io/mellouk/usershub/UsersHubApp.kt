@@ -10,7 +10,7 @@ import io.mellouk.usershub.di.AppModule
 import io.mellouk.usershub.di.DaggerAppComponent
 
 class UsersHubApp : Application(), MainComponentProvider, UsersListComponentProvider {
-    private lateinit var appComponent: AppComponent
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()

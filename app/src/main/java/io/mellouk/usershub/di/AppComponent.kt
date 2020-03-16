@@ -1,7 +1,7 @@
 package io.mellouk.usershub.di
 
 import dagger.Component
-import io.mellouk.common_android.di.ApplicationScope
+import io.mellouk.common_android.utils.UsersIdlingResource
 import io.mellouk.main.di.MainComponent
 import io.mellouk.users_list.di.UsersListComponent
 
@@ -10,4 +10,5 @@ import io.mellouk.users_list.di.UsersListComponent
 interface AppComponent {
     fun getMainComponent(): MainComponent
     fun getUsersListComponent(): UsersListComponent
+    fun getIdlingResource(): UsersIdlingResource
 }

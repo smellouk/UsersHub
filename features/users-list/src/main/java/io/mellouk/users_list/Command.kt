@@ -1,7 +1,9 @@
 package io.mellouk.users_list
 
 import io.mellouk.common_android.base.BaseCommand
+import io.mellouk.common_android.domain.usecase.GetUsersListParams
 
 sealed class Command : BaseCommand {
-    object GetUsers : Command()
+    class GetUsers(val params: GetUsersListParams) : Command()
+    class LoadMoreUsers(val params: GetUsersListParams) : Command()
 }

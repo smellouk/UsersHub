@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface UsersService {
     @GET("/users")
     fun getUsers(
-        @Query("page")
+        @Query("since")
         page: Int,
         @Query("per_page")
         pageSize: Int

@@ -1,3 +1,4 @@
+import kotlin.String
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
@@ -11,13 +12,21 @@ import org.gradle.plugin.use.PluginDependencySpec
  * YOU are responsible for updating manually the dependency version.
  */
 object Versions {
+    const val com_github_chuckerteam_chucker: String = "3.1.2"
+
+    const val androidx_test_espresso: String = "3.2.0"
+
     const val com_squareup_retrofit2: String = "2.7.2"
+
+    const val com_squareup_okhttp3: String = "4.4.0"
 
     const val org_jetbrains_kotlin: String = "1.3.61"
 
     const val androidx_navigation: String = "2.2.1"
 
     const val com_google_dagger: String = "2.26"
+
+    const val androidx_test: String = "1.2.0"
 
     const val com_android_tools_build_gradle: String = "3.6.1"
 
@@ -29,11 +38,13 @@ object Versions {
 
     const val lifecycle_extensions: String = "2.2.0"
 
-    const val logging_interceptor: String = "4.4.0"
+    const val swiperefreshlayout: String = "1.0.0"
 
     const val constraintlayout: String = "1.1.3"
 
-    const val espresso_core: String = "3.2.0"
+    const val core_testing: String = "2.1.0"
+
+    const val recyclerview: String = "1.1.0"
 
     const val lint_gradle: String = "26.6.1"
 
@@ -41,7 +52,11 @@ object Versions {
 
     const val rxandroid: String = "2.1.1"
 
+    const val cardview: String = "1.0.0"
+
     const val core_ktx: String = "1.2.0"
+
+    const val picasso: String = "2.71828"
 
     const val rxjava: String = "2.2.19"
 
@@ -63,4 +78,4 @@ object Versions {
  */
 val PluginDependenciesSpec.buildSrcVersions: PluginDependencySpec
     inline get() =
-        id("de.fayard.buildSrcVersions").version(Versions.de_fayard_buildsrcversions_gradle_plugin)
+            id("de.fayard.buildSrcVersions").version(Versions.de_fayard_buildsrcversions_gradle_plugin)

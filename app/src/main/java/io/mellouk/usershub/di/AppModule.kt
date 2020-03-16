@@ -1,10 +1,12 @@
 package io.mellouk.usershub.di
 
 import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
 import dagger.Provides
-import io.mellouk.common_android.di.ApplicationScope
+import io.mellouk.common_android.utils.UsersIdlingResource
 import io.mellouk.repositoy.remote.GitHubRepositories
+import okhttp3.Interceptor
 
 @Module
 class AppModule(
@@ -17,5 +19,19 @@ class AppModule(
 
     @ApplicationScope
     @Provides
-    fun provideGitHubRepositories() = GitHubRepositories(isDebug = isDebug)
+    fun provideChucker() = ChuckerInterceptor(context)
+
+    @ApplicationScope
+    @Provides
+    fun provideGitHubRepositories(chuckerInterceptor: ChuckerInterceptor) =
+        GitHubRepositories(
+            isDebug = isDebug,
+            debugInterceptors = listOf<Interceptor>(chuckerInterceptor)
+        )
+
+    @ApplicationScope
+    @Provides
+    fun provideIdlingResource(): UsersIdlingResource {
+        return UsersIdlingResource()
+    }
 }

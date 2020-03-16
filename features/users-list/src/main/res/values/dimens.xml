@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="error_view_text_size">20sp</dimen>
+    <dimen name="car_view_corner_radius">4dp</dimen>
+    <dimen name="margin_card_view">8dp</dimen>
+    <dimen name="card_size">75dp</dimen>
+    <dimen name="username_text_margin_left">8dp</dimen>
+    <dimen name="username_text_size">18sp</dimen>
+</resources>

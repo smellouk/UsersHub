@@ -4,11 +4,10 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation project(":common-android")
+    implementation project(':common')
 
+    testImplementation Libs.mockk
     testImplementation Libs.junit_junit
-    androidTestImplementation Libs.androidx_test_ext_junit
-    androidTestImplementation Libs.espresso_core
 
     implementation Libs.appcompat
     implementation Libs.core_ktx

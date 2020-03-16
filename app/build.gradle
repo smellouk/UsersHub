@@ -4,11 +4,18 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation project(":common-android")
+    implementation project(':common')
     implementation project(":features:main")
     implementation project(":features:users-list")
     implementation project(":features:user-profile")
     implementation project(":repository:remote")
+
+    androidTestImplementation Libs.androidx_test_ext_junit
+    androidTestImplementation Libs.espresso_core
+    androidTestImplementation Libs.androidx_test_runner
+    androidTestImplementation Libs.androidx_test_rules
+    androidTestImplementation Libs.espresso_contrib
+    compileOnly Libs.espresso_idling_resource
 
     implementation Libs.appcompat
     implementation Libs.core_ktx
@@ -16,4 +23,8 @@ dependencies {
 
     implementation Libs.dagger
     kapt Libs.dagger_compiler
+
+    implementation Libs.okhttp
+    debugImplementation Libs.chucker_library
+    releaseImplementation Libs.chucker_library_no_op
 }
