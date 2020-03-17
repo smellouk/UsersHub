@@ -12,6 +12,6 @@ import javax.inject.Inject
 class ViewStateMapper @Inject constructor() {
     fun map(cmd: Command) = when (cmd) {
         OpenUserList -> UsersList
-        is OpenUserProfile -> UserProfile(cmd.userName)
+        is OpenUserProfile -> UserProfile(cmd.username)
     }.exhaustive
 }

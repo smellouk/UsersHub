@@ -1,4 +1,4 @@
-package io.mellouk.common_android.domain.usecase
+package io.mellouk.users_list.domain
 
 import io.mellouk.common_android.domain.BaseDataState
 import io.mellouk.common_android.domain.model.User

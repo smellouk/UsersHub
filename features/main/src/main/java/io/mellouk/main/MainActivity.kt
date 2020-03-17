@@ -41,7 +41,7 @@ class MainActivity : BaseActivity<MainComponentProvider, ViewState, MainViewMode
             is UsersList -> navigateTo(state.destination)
             is UserProfile -> navigateTo(
                 state.destination, bundleOf(
-                    USER_NAME_KEY to state.userName
+                    USER_NAME_KEY to state.username
                 )
             )
         }.exhaustive
@@ -55,7 +55,7 @@ class MainActivity : BaseActivity<MainComponentProvider, ViewState, MainViewMode
         viewModel.onCommand(OpenUserList)
     }
 
-    override fun navigateToUserProfile(userName: String) {
-        viewModel.onCommand(OpenUserProfile(userName))
+    override fun navigateToUserProfile(username: String) {
+        viewModel.onCommand(OpenUserProfile(username))
     }
 }

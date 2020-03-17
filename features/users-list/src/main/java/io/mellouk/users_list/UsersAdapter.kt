@@ -48,7 +48,7 @@ class UsersAdapter(
                     .placeholder(R.drawable.ic_account_circle_24dp)
                     .error(R.drawable.ic_warning_24dp)
                     .into(ivUser)
-                tvUserName.text = user.name
+                tvUserName.text = user.username
             }
         }
     }

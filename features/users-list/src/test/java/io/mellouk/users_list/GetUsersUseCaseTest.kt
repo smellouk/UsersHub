@@ -1,12 +1,12 @@
 package io.mellouk.users_list
 
+import io.mellouk.common_android.domain.mapper.UserMapper
 import io.mellouk.common_android.domain.model.User
-import io.mellouk.common_android.domain.usecase.GetUsersListParams
-import io.mellouk.common_android.domain.usecase.SuccessfulUsersDataState
 import io.mellouk.repositoy.remote.dto.UserDto
 import io.mellouk.repositoy.remote.network.repositoty.UsersRepository
+import io.mellouk.users_list.domain.GetUsersListParams
 import io.mellouk.users_list.domain.GetUsersUseCase
-import io.mellouk.users_list.domain.UserMapper
+import io.mellouk.users_list.domain.SuccessfulUsersDataState
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.RelaxedMockK
@@ -50,10 +50,11 @@ class GetUsersUseCaseTest : BaseTest() {
 private const val PAGE = 1
 private const val PAGE_SIZE = 10
 
-private val givenGetUsersListParams = GetUsersListParams(
-    PAGE,
-    PAGE_SIZE
-)
+private val givenGetUsersListParams =
+    GetUsersListParams(
+        PAGE,
+        PAGE_SIZE
+    )
 
 private val givenDto = UserDto()
 private val givenListDtos = listOf(givenDto)

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/user_profile_padding">
+
+    <ImageView
+        android:id="@+id/ivUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:minHeight="300dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#AA000000"
+        android:minHeight="@dimen/user_profile_name_height"
+        android:padding="@dimen/user_profile_name_padding"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/user_profile_name_text_size"
+        app:layout_constraintBottom_toBottomOf="@id/ivUser"
+        app:layout_constraintLeft_toLeftOf="@id/ivUser"
+        app:layout_constraintRight_toRightOf="@id/ivUser"
+        tools:text="Full Name\n@Username" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSummary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/user_profile_summary_margin_top"
+        app:cardBackgroundColor="@color/colorGray"
+        app:cardCornerRadius="@dimen/user_profile_card_view_radius"
+        app:cardElevation="@dimen/user_profile_card_view_elevation"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintLeft_toLeftOf="@id/ivUser"
+        app:layout_constraintRight_toRightOf="@id/ivUser"
+        app:layout_constraintTop_toBottomOf="@id/ivUser">
+
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:minHeight="@dimen/user_profile_name_height"
+            android:textSize="@dimen/user_profile_summary_text_size"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintLeft_toLeftOf="@id/ivUser"
+            app:layout_constraintRight_toRightOf="@id/ivUser"
+            tools:text="Summary" />
+    </androidx.cardview.widget.CardView>
+
+    <include
+        layout="@layout/error_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/userViews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivUser,tvName,cvSummary" />
+</androidx.constraintlayout.widget.ConstraintLayout>

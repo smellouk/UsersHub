@@ -54,5 +54,20 @@ data class UserDto(
     val nodeId: String? = null,
 
     @SerializedName("organizations_url")
-    val organizationsUrl: String? = null
+    val organizationsUrl: String? = null,
+
+    @SerializedName("name")
+    val name: String? = null,
+
+    @SerializedName("bio")
+    val bio: String? = null,
+
+    @SerializedName("blog")
+    val blog: String? = null,
+
+    @SerializedName("followers")
+    val followers: String? = null,
+
+    @SerializedName("following")
+    val following: String? = null
 )

@@ -4,8 +4,10 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
+    compileOnly project(":repository:remote")
+
     testImplementation Libs.junit_junit
-    
+
     implementation Libs.appcompat
     implementation Libs.core_ktx
     implementation Libs.constraintlayout

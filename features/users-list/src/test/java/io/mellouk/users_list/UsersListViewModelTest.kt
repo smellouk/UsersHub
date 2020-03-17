@@ -1,10 +1,10 @@
 package io.mellouk.users_list
 
-import io.mellouk.common_android.domain.usecase.GetUsersListParams
-import io.mellouk.common_android.domain.usecase.SuccessfulUsersDataState
 import io.mellouk.users_list.Command.GetUsers
 import io.mellouk.users_list.Command.LoadMoreUsers
+import io.mellouk.users_list.domain.GetUsersListParams
 import io.mellouk.users_list.domain.GetUsersUseCase
+import io.mellouk.users_list.domain.SuccessfulUsersDataState
 import io.mellouk.users_list.domain.ViewStateMapper
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
@@ -27,7 +27,11 @@ class UsersListViewModelTest : BaseTest() {
     fun onGetUserCommand_ShouldGetUsers() {
         every {
             getUsersUseCase.buildObservable(givenGetUsersCommandParams)
-        } returns Observable.just(SuccessfulUsersDataState(listOf()))
+        } returns Observable.just(
+            SuccessfulUsersDataState(
+                listOf()
+            )
+        )
 
         viewModel.onCommand(givenGetUserCommand)
 
@@ -41,7 +45,11 @@ class UsersListViewModelTest : BaseTest() {
     fun onLoadMoreUsersCommand_ShouldLoadUsers() {
         every {
             getUsersUseCase.buildObservable(givenLoadMoreUsersCommandParams)
-        } returns Observable.just(SuccessfulUsersDataState(listOf()))
+        } returns Observable.just(
+            SuccessfulUsersDataState(
+                listOf()
+            )
+        )
 
         viewModel.onCommand(givenLoadMoreUsersCommand)
 
@@ -55,15 +63,17 @@ class UsersListViewModelTest : BaseTest() {
 private const val PAGE_1 = 1
 private const val PAGE_2 = 2
 private const val PAGE_SIZE = 10
-private val givenGetUsersCommandParams = GetUsersListParams(
-    PAGE_1,
-    PAGE_SIZE
-)
+private val givenGetUsersCommandParams =
+    GetUsersListParams(
+        PAGE_1,
+        PAGE_SIZE
+    )
 
-private val givenLoadMoreUsersCommandParams = GetUsersListParams(
-    PAGE_2,
-    PAGE_SIZE
-)
+private val givenLoadMoreUsersCommandParams =
+    GetUsersListParams(
+        PAGE_2,
+        PAGE_SIZE
+    )
 
 private val givenGetUserCommand = GetUsers(
     givenGetUsersCommandParams

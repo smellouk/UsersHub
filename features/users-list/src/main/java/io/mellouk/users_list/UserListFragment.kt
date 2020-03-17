@@ -2,11 +2,11 @@ package io.mellouk.users_list
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.mellouk.common_android.base.BaseFragment
 import io.mellouk.common_android.domain.model.User
-import io.mellouk.common_android.domain.usecase.GetUsersListParams
 import io.mellouk.common_android.exhaustive
 import io.mellouk.common_android.hide
 import io.mellouk.common_android.show
@@ -17,8 +17,7 @@ import io.mellouk.users_list.Command.GetUsers
 import io.mellouk.users_list.Command.LoadMoreUsers
 import io.mellouk.users_list.ViewState.*
 import io.mellouk.users_list.di.UsersListComponentProvider
-import kotlinx.android.synthetic.main.error_view.*
-import kotlinx.android.synthetic.main.error_view.view.*
+import io.mellouk.users_list.domain.GetUsersListParams
 import kotlinx.android.synthetic.main.fragment_users_list.*
 import javax.inject.Inject
 
@@ -28,13 +27,17 @@ class UserListFragment : BaseFragment<UsersListComponentProvider, ViewState, Use
 ) {
     @Inject
     lateinit var idlingResource: UsersIdlingResource
+    //Kotlin synthetic is not working as it should
+    private lateinit var errorView: View
+    private lateinit var btnRetry: View
+    private lateinit var tvError: TextView
 
     private val onClick: (User) -> Unit = { user ->
         val mainNavigator = activity as? MainNavigator ?: throw IllegalArgumentException(
             "Activity[${activity?.javaClass?.name}] is not implementing ${MainNavigator::class.java.name}"
         )
 
-        mainNavigator.navigateToUserProfile(user.name)
+        mainNavigator.navigateToUserProfile(user.username)
     }
 
     private val usersAdapter = UsersAdapter(onClick)
@@ -63,8 +66,11 @@ class UserListFragment : BaseFragment<UsersListComponentProvider, ViewState, Use
                 )
             }
         })
+        errorView = view.findViewById(R.id.errorView)
+        btnRetry = errorView.findViewById(R.id.btnRetry)
+        tvError = errorView.findViewById(R.id.tvError)
 
-        errorView.btnRetry.setOnClickListener {
+        btnRetry.setOnClickListener {
             loadUsersList()
         }
 
@@ -77,7 +83,6 @@ class UserListFragment : BaseFragment<UsersListComponentProvider, ViewState, Use
         when (state) {
             Initial -> loadUsersList()
             is Error -> renderErrorView(state)
-            NoInternet -> renderDefaultViewState()
             Loading -> renderLoading()
             is UsersListReady -> renderUserList(state)
         }.exhaustive
@@ -85,7 +90,7 @@ class UserListFragment : BaseFragment<UsersListComponentProvider, ViewState, Use
 
     private fun renderErrorView(state: Error) {
         swipeToRefresh.isRefreshing = false
-        errorView.tvError.text = state.message
+        tvError.text = state.message
         userViews.hide()
         errorView.show()
     }

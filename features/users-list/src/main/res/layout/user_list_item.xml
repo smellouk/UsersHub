@@ -7,7 +7,7 @@
     android:layout_margin="@dimen/margin_card_view"
     app:cardBackgroundColor="@color/colorGray"
     app:cardCornerRadius="@dimen/car_view_corner_radius"
-    app:cardElevation="4dp">
+    app:cardElevation="@dimen/user_item_list_elevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -1,8 +1,11 @@
 package io.mellouk.usershub
 
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -48,12 +51,21 @@ class MainActivityTest {
             .check(matches(hasDescendant(withText("defunkt"))));
     }
 
-    /*@Test
+    @Test
     fun onStartActivity_ShouldOpenUserProfile() {
         onView(withId(R.id.rvUsers))
             .check(matches(isDisplayed()));
 
         onView(withId(R.id.rvUsers))
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()));
-    }*/
+
+        onView(withId(R.id.ivUser))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.tvName))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.tvSummary))
+            .check(matches(isDisplayed()))
+    }
 }

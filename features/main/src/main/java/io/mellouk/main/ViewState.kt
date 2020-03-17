@@ -11,6 +11,6 @@ sealed class ViewState : BaseViewState {
         val destination: Int = R.id.user_list_fragment
     }
 
-    class UserProfile(val userName: String, @IdRes val destination: Int = R.id.user_profile_fragment) :
+    class UserProfile(val username: String, @IdRes val destination: Int = R.id.user_profile_fragment) :
         ViewState()
 }

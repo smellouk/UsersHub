@@ -2,13 +2,13 @@ package io.mellouk.users_list
 
 import io.mellouk.common_android.Commandable
 import io.mellouk.common_android.base.BaseViewModel
-import io.mellouk.common_android.domain.usecase.GetUsersListParams
 import io.mellouk.common_android.exhaustive
 import io.mellouk.users_list.Command.GetUsers
 import io.mellouk.users_list.Command.LoadMoreUsers
 import io.mellouk.users_list.ViewState.Initial
 import io.mellouk.users_list.ViewState.Loading
 import io.mellouk.users_list.di.UsersListScope
+import io.mellouk.users_list.domain.GetUsersListParams
 import io.mellouk.users_list.domain.GetUsersUseCase
 import io.mellouk.users_list.domain.ViewStateMapper
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package io.mellouk.users_list.di
+package io.mellouk.user_profile.di
 
 import dagger.Module
 import dagger.Provides
@@ -7,11 +7,12 @@ import io.mellouk.repositoy.remote.GitHubRepositories
 
 @Module
 class RepositoryModule {
-    @UsersListScope
+    @UserProfileScope
     @Provides
     fun provideUsersRepository(repositories: GitHubRepositories) = repositories.usersRepository
 
-    @UsersListScope
+
+    @UserProfileScope
     @Provides
     fun provideUserMapper() = UserMapper()
 }
