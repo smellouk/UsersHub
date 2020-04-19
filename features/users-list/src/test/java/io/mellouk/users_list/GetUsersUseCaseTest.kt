@@ -59,5 +59,5 @@ private val givenGetUsersListParams =
 private val givenDto = UserDto()
 private val givenListDtos = listOf(givenDto)
 
-private val givenUser = User("", "")
+private val givenUser = User("", "", "", "", "", "", "")
 private val giveListUsers = listOf(givenUser)
